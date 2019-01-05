@@ -1,6 +1,8 @@
 <h1>I'm the jobs#index page</h1>
 
-<%= link_to 'Add a new job button', new_job_path %>
+<% if policy(Job).new? %>
+  <%= link_to 'Add a new job button', new_job_path %>
+<% end %>
 
 <ul>
   <% @jobs.each do |job| %>
