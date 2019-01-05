@@ -70,6 +70,9 @@
 <row name="salary_high" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="salary_type" null="0" autoincrement="0">
+<datatype>TEXT</datatype>
+<default>'month'</default></row>
 <row name="date_applied" null="1" autoincrement="0">
 <datatype>DATE</datatype>
 <default>NULL</default></row>
