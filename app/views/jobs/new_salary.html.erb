@@ -1,8 +1,9 @@
-<h1>I'm the salary#new page</h1>
-
-<%= simple_form_for(@job, method: :patch, url: update_salary_job_path) do |f| %>
-  <%= f.input :currency %>
-  <%= f.input :salary_low %>
-  <%= f.input :salary_high %>
-  <%= f.submit %>
-<% end %>
+<div class="form_wrapper">
+  <%= simple_form_for(@job, method: :patch, url: update_salary_job_path) do |f| %>
+    <%= f.input :currency, collection: ['GBP', 'EUR', 'USD'].sort %>
+    <%= f.input :salary_low %>
+    <%= f.input :salary_high %>
+    <%= f.submit 'Add salary', class: 'btn btn-primary' %>
+  <% end %>
+  <%= link_to 'Skip', new_date_applied_job_path(@job), class: 'skip_button btn btn-default' %>
+</div>

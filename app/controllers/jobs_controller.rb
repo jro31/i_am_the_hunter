@@ -10,8 +10,11 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
     @job.user = current_user
     authorize @job
-    @job.save
-    redirect_to new_position_job_path(@job)
+    if @job.save
+      redirect_to new_position_job_path(@job)
+    else
+      render :new
+    end
   end
 
   def index

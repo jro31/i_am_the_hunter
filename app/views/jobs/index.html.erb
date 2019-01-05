@@ -1,23 +1,43 @@
-<h1>I'm the jobs#index page</h1>
-
 <% if policy(Job).new? %>
   <%= link_to 'Add a new job button', new_job_path %>
 <% end %>
 
-<ul>
-  <% @jobs.each do |job| %>
-    <li>
-      <%= job.company_name %>
-      <%= job.agency %>
-      <%= job.position %>
-      <%= job.location %>
-      <%= job.currency %>
-      <%= job.salary_low %>
-      <%= job.salary_high %>
-      <%= job.date_applied %>
-      <%= job.status %>
-      <%= job.url %>
-      <%= job.notes %>
-    </li>
+<% if @jobs.exists? %>
+  <table id="jobs_table">
+    <tr>
+      <th>Company</th>
+      <th>Agency</th>
+      <th>Position</th>
+      <th>Location</th>
+      <th>Salary</th>
+      <th>Date applied</th>
+      <th>Status</th>
+      <th>URL</th>
+      <th>Notes</th>
+    </tr>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.company_name %></td>
+        <td><% if job.agency == true %>✓<% end %></td>
+        <td><%= job.position %></td>
+        <td><%= job.location %></td>
+        <td>
+          <% if job.salary_low != nil && job.salary_high != nil %>
+            <% case job.currency when 'EUR' %>&#8364;
+            <% when 'GBP' %>&#163;
+            <% when 'USD' %>&#36;
+            <% end %>
+          <% end %>
+          <%= job.salary_low %>
+          <% if job.salary_low != job.salary_high %>- <%= job.salary_high %><% end %>
+        </td>
+        <td><%= job.date_applied %></td>
+        <td><%= job.status %></td>
+        <td><% if job.url != nil && job.url != "" %><%= link_to 'Visit site', job.url, target: "_blank" %><% end %></td>
+        <td><%= job.notes %></td>
+      </tr>
   <% end %>
-</ul>
+</table>
+<% else %>
+  <p>You don't have any jobs. Deal with it.</p>
+<% end %>
