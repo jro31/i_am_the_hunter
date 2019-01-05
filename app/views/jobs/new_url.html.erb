@@ -1,0 +1,6 @@
+<h1>I'm the jobs#new_url page</h1>
+
+<%= simple_form_for(@job, method: :patch, url: update_url_job_path) do |f| %>
+  <%= f.input :url %>
+  <%= f.submit %>
+<% end %>

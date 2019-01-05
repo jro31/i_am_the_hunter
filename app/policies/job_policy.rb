@@ -29,6 +29,30 @@ class JobPolicy < ApplicationPolicy
     update?
   end
 
+  def new_salary?
+    update_salary?
+  end
+
+  def update_salary?
+    update?
+  end
+
+  def new_date_applied?
+    update_date_applied?
+  end
+
+  def update_date_applied?
+    update?
+  end
+
+  def new_url?
+    update_url?
+  end
+
+  def update_url?
+    update?
+  end
+
   private
 
   def user_is_owner?

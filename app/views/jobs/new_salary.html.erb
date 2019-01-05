@@ -1,0 +1,8 @@
+<h1>I'm the salary#new page</h1>
+
+<%= simple_form_for(@job, method: :patch, url: update_salary_job_path) do |f| %>
+  <%= f.input :currency %>
+  <%= f.input :salary_low %>
+  <%= f.input :salary_high %>
+  <%= f.submit %>
+<% end %>

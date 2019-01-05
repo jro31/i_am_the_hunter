@@ -8,6 +8,16 @@
   <% @jobs.each do |job| %>
     <li>
       <%= job.company_name %>
+      <%= job.agency %>
+      <%= job.position %>
+      <%= job.location %>
+      <%= job.currency %>
+      <%= job.salary_low %>
+      <%= job.salary_high %>
+      <%= job.date_applied %>
+      <%= job.status %>
+      <%= job.url %>
+      <%= job.notes %>
     </li>
   <% end %>
 </ul>

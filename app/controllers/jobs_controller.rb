@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: [:new_position, :update_position, :new_location, :update_location]
+  before_action :set_job, only: [:new_position, :update_position, :new_location, :update_location, :new_salary, :update_salary, :new_date_applied, :update_date_applied, :new_url, :update_url]
 
   def new
     @job = Job.new
@@ -35,13 +35,43 @@ class JobsController < ApplicationController
   def update_location
     authorize @job
     @job.update(job_params)
-    # redirect_to SOMEWHERE
+    redirect_to new_salary_job_path(@job)
+  end
+
+  def new_salary
+    authorize @job
+  end
+
+  def update_salary
+    authorize @job
+    @job.update(job_params)
+    redirect_to new_date_applied_job_path(@job)
+  end
+
+  def new_date_applied
+    authorize @job
+  end
+
+  def update_date_applied
+    authorize @job
+    @job.update(job_params)
+    redirect_to new_url_job_path(@job)
+  end
+
+  def new_url
+    authorize @job
+  end
+
+  def update_url
+    authorize @job
+    @job.update(job_params)
+    redirect_to root_path
   end
 
   private
 
   def job_params
-    params.require(:job).permit(:company_name, :agency, :position, :location)
+    params.require(:job).permit(:company_name, :agency, :position, :location, :currency, :salary_low, :salary_high, :date_applied, :url)
   end
 
   def set_job

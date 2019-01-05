@@ -1,0 +1,6 @@
+<h1>I'm the jobs#new_date_applied page</h1>
+
+<%= simple_form_for(@job, method: :patch, url: update_date_applied_job_path) do |f| %>
+  <%= f.input :date_applied %>
+  <%= f.submit %>
+<% end %>
