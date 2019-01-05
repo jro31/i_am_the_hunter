@@ -1,7 +1,35 @@
 #jobs_table {
   min-width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  text-align: left;
 }
 
 #jobs_table th, #jobs_table td {
-  border: 1px solid black;
+  padding: 5px;
 }
+
+#jobs_table th {
+  background-color: #55608f;
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#jobs_table td {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#jobs_table .jobs_row:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+#jobs_table .jobs_row:hover a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+#jobs_table .actions div {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+

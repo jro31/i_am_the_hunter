@@ -2,5 +2,17 @@
 @import "form";
 
 body {
+  background: linear-gradient(#49a09d, #5f2c82);
+  background-size: cover;
+  min-height: 100vh;
   text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+body a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+body a:hover {
+  color: rgba(255, 255, 255, 1);
 }

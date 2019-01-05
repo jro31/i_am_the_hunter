@@ -1,5 +1,6 @@
+<div class="jobs_index_wrapper">
 <% if policy(Job).new? %>
-  <%= link_to 'Add a new job button', new_job_path %>
+  <%= link_to 'Add a new job', new_job_path, class: 'btn btn-primary' %>
 <% end %>
 
 <% if @jobs.exists? %>
@@ -14,9 +15,10 @@
       <th>Status</th>
       <th>URL</th>
       <th>Notes</th>
+      <th>Actions</th>
     </tr>
     <% @jobs.each do |job| %>
-      <tr>
+      <tr class="jobs_row">
         <td><%= job.company_name %></td>
         <td><% if job.agency == true %>✓<% end %></td>
         <td><%= job.position %></td>
@@ -30,14 +32,24 @@
           <% end %>
           <%= job.salary_low %>
           <% if job.salary_low != job.salary_high %>- <%= job.salary_high %><% end %>
+          <% if job.salary_low != nil && job.salary_high != nil %>
+            &#47;<%= job.salary_type %>
+          <% end %>
         </td>
         <td><%= job.date_applied %></td>
         <td><%= job.status %></td>
         <td><% if job.url != nil && job.url != "" %><%= link_to 'Visit site', job.url, target: "_blank" %><% end %></td>
         <td><%= job.notes %></td>
+        <td class="actions">
+          <div>
+            <%= link_to root_path do %><i class="fas fa-pencil-alt"></i><% end %>
+            <%= link_to root_path do %><i class="far fa-trash-alt"></i><% end %>
+          </div>
+        </td>
       </tr>
   <% end %>
 </table>
 <% else %>
   <p>You don't have any jobs. Deal with it.</p>
 <% end %>
+</div>
