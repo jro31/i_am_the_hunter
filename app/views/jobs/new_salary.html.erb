@@ -1,9 +1,12 @@
 <div class="form_wrapper">
+  <div class="job_form">
   <%= simple_form_for(@job, method: :patch, url: update_salary_job_path) do |f| %>
-    <%= f.input :currency, collection: ['GBP', 'EUR', 'USD'].sort %>
+    <%= f.input :currency, collection: ['GBP', 'EUR', 'USD'].sort, include_blank: false, include_hidden: false %>
     <%= f.input :salary_low %>
     <%= f.input :salary_high %>
+    <%= f.input :salary_type, collection: ['hour', 'day', 'week', 'month', 'year'], include_blank: false, include_hidden: false %>
     <%= f.submit 'Add salary', class: 'btn btn-primary' %>
   <% end %>
   <%= link_to 'Skip', new_date_applied_job_path(@job), class: 'skip_button btn btn-default' %>
+  </div>
 </div>

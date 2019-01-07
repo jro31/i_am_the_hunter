@@ -1,7 +1,9 @@
 <div class="form_wrapper">
-  <%= simple_form_for(@job, method: :patch, url: update_url_job_path) do |f| %>
-    <%= f.input :url %>
-    <%= f.submit 'Add URL', class: 'btn btn-primary' %>
-  <% end %>
-  <%= link_to 'Skip', root_path, class: 'skip_button btn btn-default' %>
+  <div class="job_form">
+    <%= simple_form_for(@job, method: :patch, url: update_url_job_path) do |f| %>
+      <%= f.input :url %>
+      <%= f.submit 'Add URL', class: 'btn btn-primary' %>
+    <% end %>
+    <%= link_to 'Skip', root_path, class: 'skip_button btn btn-default' %>
+  </div>
 </div>

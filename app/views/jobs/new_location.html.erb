@@ -1,7 +1,9 @@
 <div class="form_wrapper">
-  <%= simple_form_for(@job, method: :patch, url: update_location_job_path) do |f| %>
-    <%= f.input :location, label: "What is the location?", placeholder: "London" %>
-    <%= f.submit 'Add location', class: 'btn btn-primary' %>
-  <% end %>
-  <%= link_to 'Skip', new_salary_job_path(@job), class: 'skip_button btn btn-default' %>
+  <div class="job_form">
+    <%= simple_form_for(@job, method: :patch, url: update_location_job_path) do |f| %>
+      <%= f.input :location, label: "What is the location?", placeholder: "London" %>
+      <%= f.submit 'Add location', class: 'btn btn-primary' %>
+    <% end %>
+    <%= link_to 'Skip', new_salary_job_path(@job), class: 'skip_button btn btn-default' %>
+  </div>
 </div>

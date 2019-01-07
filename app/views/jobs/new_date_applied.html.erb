@@ -1,7 +1,9 @@
 <div class="form_wrapper">
-  <%= simple_form_for(@job, method: :patch, url: update_date_applied_job_path) do |f| %>
-    <%= f.input :date_applied, as: :date, html5: true, label: "When did you apply for this job?" %>
-    <%= f.submit 'Add date', class: 'btn btn-primary' %>
-  <% end %>
-  <%= link_to 'Skip', new_url_job_path(@job), class: 'skip_button btn btn-default' %>
+  <div class="job_form">
+    <%= simple_form_for(@job, method: :patch, url: update_date_applied_job_path) do |f| %>
+      <%= f.input :date_applied, as: :date, html5: true, label: "When did you apply for this job?" %>
+      <%= f.submit 'Add date', class: 'btn btn-primary' %>
+    <% end %>
+    <%= link_to 'Skip', new_url_job_path(@job), class: 'skip_button btn btn-default' %>
+  </div>
 </div>
