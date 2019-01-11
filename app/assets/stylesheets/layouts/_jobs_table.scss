@@ -23,13 +23,18 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
-#jobs_table .jobs_row:hover a {
+#jobs_table .jobs_row:hover a, #jobs_table .jobs_row:hover button {
   color: rgba(255, 255, 255, 0.9);
 }
 
 #jobs_table .actions div {
   display: flex;
   justify-content: space-evenly;
+}
+
+#jobs_table button {
+  background: transparent;
+  border: none;
 }
 
 

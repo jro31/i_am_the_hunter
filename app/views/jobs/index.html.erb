@@ -39,7 +39,8 @@
         <td class="actions">
           <div>
             <%= link_to root_path do %><i class="fas fa-pencil-alt"></i><% end %>
-            <%= link_to job_path(job), data: { confirm: "Are you sure?" }, method: :delete do %><i class="far fa-trash-alt"></i><% end %>
+            <button id="delete_button"><i class="far fa-trash-alt"></i></button>
+            <%= link_to "", job_path(job), id: "delete_link", class: "hidden", method: :delete %>
           </div>
         </td>
       </tr>
