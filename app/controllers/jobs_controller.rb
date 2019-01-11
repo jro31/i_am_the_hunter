@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: [:new_position, :update_position, :new_location, :update_location, :new_salary, :update_salary, :new_date_applied, :update_date_applied, :new_url, :update_url]
+  before_action :set_job, only: [:new_position, :update_position, :new_location, :update_location, :new_salary, :update_salary, :new_date_applied, :update_date_applied, :new_url, :update_url, :destroy]
 
   def new
     @job = Job.new
@@ -68,6 +68,13 @@ class JobsController < ApplicationController
   def update_url
     authorize @job
     @job.update(job_params)
+    redirect_to root_path
+  end
+
+  def destroy
+    authorize @job
+    @job.destroy
+    flash[:notice] = "Job deleted"
     redirect_to root_path
   end
 

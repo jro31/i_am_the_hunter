@@ -39,7 +39,7 @@
         <td class="actions">
           <div>
             <%= link_to root_path do %><i class="fas fa-pencil-alt"></i><% end %>
-            <%= link_to root_path do %><i class="far fa-trash-alt"></i><% end %>
+            <%= link_to job_path(job), data: { confirm: "Are you sure?" }, method: :delete do %><i class="far fa-trash-alt"></i><% end %>
           </div>
         </td>
       </tr>

@@ -53,6 +53,10 @@ class JobPolicy < ApplicationPolicy
     update?
   end
 
+  def destroy?
+    user_is_owner?
+  end
+
   private
 
   def user_is_owner?
