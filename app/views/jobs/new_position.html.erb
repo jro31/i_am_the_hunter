@@ -1,7 +1,7 @@
 <div class="form_wrapper">
   <div class="job_form">
     <%= simple_form_for(@job, method: :patch, url: update_position_job_path) do |f| %>
-      <%= f.input :position, label: "What position did you apply for?", placeholder: "Web Developer" %>
+      <%= render 'position_form', job: @job, f: f %>
       <%= f.submit 'Add position', class: 'btn btn-primary' %>
     <% end %>
   </div>

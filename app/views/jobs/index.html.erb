@@ -38,9 +38,13 @@
         <td><%= job.notes %></td>
         <td class="actions">
           <div>
-            <%= link_to root_path do %><i class="fas fa-pencil-alt"></i><% end %>
-            <button id="delete_button"><i class="far fa-trash-alt"></i></button>
-            <%= link_to "", job_path(job), id: "delete_link", class: "hidden", method: :delete %>
+            <% if policy(job).edit? %>
+              <%= link_to edit_job_path(job) do %><i class="fas fa-pencil-alt"></i><% end %>
+            <% end %>
+            <% if policy(job).destroy? %>
+              <button id="delete_button"><i class="far fa-trash-alt"></i></button>
+              <%= link_to "", job_path(job), id: "delete_link", class: "hidden", method: :delete %>
+            <% end %>
           </div>
         </td>
       </tr>

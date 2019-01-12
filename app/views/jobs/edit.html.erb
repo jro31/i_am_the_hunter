@@ -1,0 +1,9 @@
+<%= simple_form_for(@job, method: :patch, url: job_path) do |f| %>
+  <%= render 'company_form', job: @job, f: f %>
+  <%= render 'position_form', job: @job, f: f %>
+  <%= render 'location_form', job: @job, f: f %>
+  <%= render 'salary_form', job: @job, f: f %>
+  <%= render 'date_applied_form', job: @job, f: f %>
+  <%= render 'url_form', job: @job, f: f %>
+  <%= f.submit 'Update', class: 'btn btn-primary' %>
+<% end %>
