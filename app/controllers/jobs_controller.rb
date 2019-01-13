@@ -87,7 +87,6 @@ class JobsController < ApplicationController
   def destroy
     authorize @job
     @job.destroy
-    # flash[:notice] = "Job deleted"
     redirect_to root_path
   end
 

@@ -1,14 +1,21 @@
 import swal from 'sweetalert';
 
+let link_id = null;
+
 const initSweetalert = (selector, options = {}, callback = () => {}) => {
   const swalButtons = document.querySelectorAll(selector);
   if (swalButtons) {
     swalButtons.forEach(function(swalButton) {
       swalButton.addEventListener('click', () => {
-        swal(options).then(callback); // <-- add the `.then(callback)`
+        link_id = swalButton.id + "_delete";
+        swal(options).then(callback);
       });
     });
   }
 };
 
-export { initSweetalert };
+function getLinkId() {
+  return link_id;
+};
+
+export { initSweetalert, getLinkId };

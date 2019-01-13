@@ -13,6 +13,7 @@
       <th>Notes</th>
       <th>Actions</th>
     </tr>
+    <% num_id = 1 %>
     <% @jobs.each do |job| %>
       <tr class="jobs_row">
         <td><%= job.company_name %></td>
@@ -42,8 +43,9 @@
               <%= link_to edit_job_path(job) do %><i class="fas fa-pencil-alt"></i><% end %>
             <% end %>
             <% if policy(job).destroy? %>
-              <button class="delete_button"><i class="far fa-trash-alt"></i></button>
-              <%= link_to "", job_path(job), class: "hidden delete_link", method: :delete %>
+              <button id="<%= num_id %>" class="delete_button"><i class="far fa-trash-alt"></i></button>
+              <%= link_to "", job_path(job), id: "#{num_id}_delete", class: "hidden delete_link", method: :delete %>
+              <% num_id += 1 %>
             <% end %>
           </div>
         </td>

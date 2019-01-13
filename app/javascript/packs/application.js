@@ -1,6 +1,6 @@
 import "bootstrap";
 
-import { initSweetalert } from '../plugins/init_sweetalert';
+import { initSweetalert, getLinkId } from '../plugins/init_sweetalert';
 
 initSweetalert('.delete_button', {
   title: "Delete this job",
@@ -9,7 +9,8 @@ initSweetalert('.delete_button', {
   buttons: [true, "Delete"]
 }, (value) => {
   if (value) {
-    const link = document.querySelector('.delete_link');
+    var deleted_job = getLinkId();
+    const link = document.getElementById(deleted_job);
     link.click();
   }
 });
