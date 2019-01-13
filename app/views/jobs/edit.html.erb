@@ -6,5 +6,8 @@
   <%= render 'date_applied_form', job: @job, f: f %>
   <%= render 'url_form', job: @job, f: f %>
   <%= render 'notes_form', job: @job, f: f %>
-  <%= f.submit 'Update', class: 'btn btn-primary' %>
+  <%= f.submit 'Update', id: 'update_job_link', class: 'hidden' %>
 <% end %>
+
+<%= link_to "Discard changes", root_path, class: "btn btn-default" %>
+<button id="update_job_button" class="btn btn-primary">Update</button>

@@ -1,13 +1,23 @@
 import "bootstrap";
 
-import { sweetalertNewJobConfirm, sweetalertDeleteWarning, getLinkId } from '../plugins/init_sweetalert';
+import { sweetalertNewJobConfirm, sweetalertUpdateJobConfirm, sweetalertDeleteWarning, getLinkId } from '../plugins/init_sweetalert';
 
 sweetalertNewJobConfirm('.create_job_button', {
   title: "Job added",
   icon: "success",
 }, (value) => {
   if (value) {
-    const link = document.querySelector('.submit_link');
+    const link = document.querySelector('.add_url_link');
+    link.click();
+  }
+});
+
+sweetalertUpdateJobConfirm('#update_job_button', {
+  title: "Job updated",
+  icon: "success",
+}, (value) => {
+  if (value) {
+    const link = document.getElementById('update_job_link');
     link.click();
   }
 });

@@ -2,7 +2,7 @@
   <div class="job_form">
     <%= simple_form_for(@job, method: :patch, url: update_url_job_path) do |f| %>
       <%= render 'url_form', job: @job, f: f %>
-      <%= f.submit "", class: 'hidden submit_link' %>
+      <%= f.submit "", class: 'hidden add_url_link' %>
     <% end %>
     <button class="create_job_button btn btn-primary">Add URL</button>
     <button class="create_job_button skip_button btn btn-default">Skip</button>

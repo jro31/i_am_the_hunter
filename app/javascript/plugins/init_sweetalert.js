@@ -12,6 +12,16 @@ const sweetalertNewJobConfirm = (selector, options = {}, callback = () => {}) =>
   }
 };
 
+const sweetalertUpdateJobConfirm = (selector, options = {}, callback = () => {}) => {
+  const swalButton = document.querySelector(selector);
+  console.log(swalButton);
+  if (swalButton) {
+    swalButton.addEventListener('click', () => {
+      swal(options).then(callback);
+    })
+  }
+};
+
 let link_id = null;
 const sweetalertDeleteWarning = (selector, options = {}, callback = () => {}) => {
   const swalButtons = document.querySelectorAll(selector);
@@ -29,4 +39,4 @@ function getLinkId() {
   return link_id;
 };
 
-export { sweetalertNewJobConfirm, sweetalertDeleteWarning, getLinkId };
+export { sweetalertNewJobConfirm, sweetalertUpdateJobConfirm, sweetalertDeleteWarning, getLinkId };
