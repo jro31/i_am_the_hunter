@@ -42,8 +42,8 @@
               <%= link_to edit_job_path(job) do %><i class="fas fa-pencil-alt"></i><% end %>
             <% end %>
             <% if policy(job).destroy? %>
-              <button id="delete_button"><i class="far fa-trash-alt"></i></button>
-              <%= link_to "", job_path(job), id: "delete_link", class: "hidden", method: :delete %>
+              <button class="delete_button"><i class="far fa-trash-alt"></i></button>
+              <%= link_to "", job_path(job), class: "hidden delete_link", method: :delete %>
             <% end %>
           </div>
         </td>
