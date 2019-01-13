@@ -1,6 +1,16 @@
 import "bootstrap";
 
-import { sweetalertDeleteWarning, getLinkId } from '../plugins/init_sweetalert';
+import { sweetalertNewJobConfirm, sweetalertDeleteWarning, getLinkId } from '../plugins/init_sweetalert';
+
+sweetalertNewJobConfirm('.create_job_button', {
+  title: "Job added",
+  icon: "success",
+}, (value) => {
+  if (value) {
+    const link = document.querySelector('.submit_link');
+    link.click();
+  }
+});
 
 sweetalertDeleteWarning('.delete_button', {
   title: "Delete this job",

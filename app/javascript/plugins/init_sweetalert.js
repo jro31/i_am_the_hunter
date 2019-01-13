@@ -1,7 +1,18 @@
 import swal from 'sweetalert';
 
-let link_id = null;
+const sweetalertNewJobConfirm = (selector, options = {}, callback = () => {}) => {
+  const swalButtons = document.querySelectorAll(selector);
+  console.log(swalButtons);
+  if (swalButtons) {
+    swalButtons.forEach(function(swalButton) {
+      swalButton.addEventListener('click', () => {
+        swal(options).then(callback);
+      });
+    })
+  }
+};
 
+let link_id = null;
 const sweetalertDeleteWarning = (selector, options = {}, callback = () => {}) => {
   const swalButtons = document.querySelectorAll(selector);
   if (swalButtons) {
@@ -18,4 +29,4 @@ function getLinkId() {
   return link_id;
 };
 
-export { sweetalertDeleteWarning, getLinkId };
+export { sweetalertNewJobConfirm, sweetalertDeleteWarning, getLinkId };
