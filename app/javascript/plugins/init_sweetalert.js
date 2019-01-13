@@ -1,12 +1,21 @@
 import swal from 'sweetalert';
 
+let link_id = null;
+
 const initSweetalert = (selector, options = {}, callback = () => {}) => {
-  const swalButton = document.querySelector(selector);
-  if (swalButton) { // protect other pages
-    swalButton.addEventListener('click', () => {
-      swal(options).then(callback); // <-- add the `.then(callback)`
+  const swalButtons = document.querySelectorAll(selector);
+  if (swalButtons) {
+    swalButtons.forEach(function(swalButton) {
+      swalButton.addEventListener('click', () => {
+        link_id = swalButton.id + "_delete";
+        swal(options).then(callback);
+      });
     });
   }
 };
 
-export { initSweetalert };
+function getLinkId() {
+  return link_id;
+};
+
+export { initSweetalert, getLinkId };
