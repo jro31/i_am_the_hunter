@@ -1,8 +1,8 @@
 import "bootstrap";
 
-import { initSweetalert, getLinkId } from '../plugins/init_sweetalert';
+import { sweetalertDeleteWarning, getLinkId } from '../plugins/init_sweetalert';
 
-initSweetalert('.delete_button', {
+sweetalertDeleteWarning('.delete_button', {
   title: "Delete this job",
   text: "Are you sure?",
   icon: "error",

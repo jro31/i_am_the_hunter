@@ -2,7 +2,7 @@ import swal from 'sweetalert';
 
 let link_id = null;
 
-const initSweetalert = (selector, options = {}, callback = () => {}) => {
+const sweetalertDeleteWarning = (selector, options = {}, callback = () => {}) => {
   const swalButtons = document.querySelectorAll(selector);
   if (swalButtons) {
     swalButtons.forEach(function(swalButton) {
@@ -18,4 +18,4 @@ function getLinkId() {
   return link_id;
 };
 
-export { initSweetalert, getLinkId };
+export { sweetalertDeleteWarning, getLinkId };
