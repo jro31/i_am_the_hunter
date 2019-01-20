@@ -1,0 +1,60 @@
+.jobs_index_wrapper
+  - if @jobs.exists?
+    %table#jobs_table
+      %tr
+        %th Company
+        %th Agency
+        %th Position
+        %th Location
+        %th Salary
+        %th Date applied
+        %th Status
+        %th URL
+        %th Notes
+        %th Actions
+      - num_id = 1
+      - @jobs.each do |job|
+        %tr.jobs_row
+          %td= job.company_name
+          %td
+            - if job.agency == true
+              ✓
+          %td= job.position
+          %td= job.location
+          %td
+            - if job.salary_low != nil && job.salary_high != nil
+              - case job.currency
+              - when 'EUR'
+                &#8364;
+              - when 'GBP'
+                &#163;
+              - when 'USD'
+                &#36;
+            = job.salary_low
+            - if job.salary_low != job.salary_high
+              \-
+              = job.salary_high
+            - if job.salary_low != nil && job.salary_high != nil
+              &#47;
+              = job.salary_type
+          %td= job.date_applied
+          %td= job.status
+          %td
+            - if job.url != nil && job.url != ""
+              = link_to 'Visit site', job.url, target: "_blank"
+          %td= job.notes
+          %td.actions
+            %div
+              - if policy(job).edit?
+                = link_to edit_job_path(job) do
+                  %i.fas.fa-pencil-alt
+              - if policy(job).destroy?
+                %button{:id => num_id, :class => "delete_button"}
+                  %i.far.fa-trash-alt
+                = link_to "", job_path(job), id: "#{num_id}_delete", class: "hidden delete_link", method: :delete
+                - num_id += 1
+  - else
+    %p You don't have any jobs. Deal with it.
+  - if policy(Job).new?
+    = link_to 'Add a new job', new_job_path, class: 'new_job_button btn btn-primary'
+    = link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-default'
